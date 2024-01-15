@@ -4,7 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <title>Counter</title>
-    <link rel="stylesheet" href="/style.css">
+    <style>
+        *{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.box{
+   height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+
+.box h1{
+    margin: 30px;
+}
+.counter_box{
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#add_btn, #minus_btn, #reset_btn{
+    height: 50px;
+    width: 120px;
+    padding: 0 40px;
+    border-radius: 10px;
+    font-size: 40px;
+    background-color: greenyellow;
+    color: white;
+    margin: 20px;
+    border: none;
+    cursor: pointer;
+}
+#reset_btn{
+    font-size: 20px;
+}
+#cournter_value{
+    height: 50px;
+    min-width: 120px;
+    border-radius: 10px;
+    background-color: cyan;
+    margin-top: 20px;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    </style>
 </head>
 <body>
     <div class = "box">
@@ -16,6 +67,34 @@
                  <button id="reset_btn">Reset</button>
          </div>
     </div>  
-    <script src="/script.js" type="text/JavaScript"></script>
+    <script>
+        // Fetch Data from HTML
+
+let add_btn = document.getElementById("add_btn");
+let cournter_value  = document.getElementById("cournter_value");
+let minus_btn = document.getElementById("minus_btn");
+let reset_btn = document.getElementById("reset_btn");
+
+let count = 0;
+
+// For Increment
+
+    add_btn.addEventListener('click',() => {
+        count++;
+        cournter_value.innerHTML = count;
+    });
+
+    // For Minus
+    minus_btn.addEventListener('click',()=>{
+        count--;
+        cournter_value.innerHTML = count;
+    })
+
+    // For Reset
+    reset_btn.addEventListener('click' , ()=>{
+        cournter_value.innerHTML = 0;
+        count = 0;
+    })
+    </script>
 </body>
 </html>
